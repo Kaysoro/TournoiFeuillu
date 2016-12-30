@@ -1,0 +1,179 @@
+body {
+  margin:0;
+  padding:0;
+  background: url("http://wallpaperswide.com/download/sunset_winter_shadows-wallpaper-1920x1080.jpg") no-repeat center fixed; 
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.content-wrapper {
+    width : 70%;
+    margin-left : auto;
+    margin-right : auto;
+    margin-top: 30vh;
+    /** transform: translateY(-50%); **/
+
+    background-color: rgba(255, 255, 255, 0.7);
+    border : 2px solid #d1d1d1;
+    border-radius: 5px;
+}
+
+.classes {
+    width : 70%;
+    margin : auto;
+    text-align : center;
+}
+
+.used {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+}
+
+.teams {
+     display: block;
+     text-align : center;
+}
+
+.team {
+    text-align : center;
+    margin: 15px;
+    border : 2px solid #d1d1d1;
+    border-radius: 5px;
+    display:inline-block;
+}
+
+.team:hover {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: rgba(0, 128, 0, 0.1);
+    border : 2px solid green;
+}
+
+.item {
+    width: 54px;
+    height: 54px;
+    margin:10px;
+
+    overflow: hidden;
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity:0.8;
+
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50%;
+    border-radius: 50px;
+
+    -moz-box-shadow: 0px 0px 5px #343434;
+    -webkit-box-shadow: 0px 0px 5px #343434;
+    -o-box-shadow: 0px 0px 5px #343434;
+    box-shadow: 0px 0px 5px #343434;
+
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    outline:none;
+}
+
+.item:hover{
+    filter:alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity:1;
+    animation: swing 0.5s;
+	-webkit-animation: swing 0.5s;
+}
+
+.score {
+  /**
+  TODO police
+  **/
+  color : green;
+}
+
+.error {
+  color : red;
+}
+
+/** Animations **/
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    -ms-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    -ms-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    -ms-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    -ms-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    -ms-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.swing {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+}
+
+@media screen and (max-width: 640px) {
+  .content-wrapper {
+    width : 95%;
+  }
+
+  .classes {
+    width : 100%;
+  }
+}
