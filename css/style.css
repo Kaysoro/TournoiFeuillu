@@ -1,7 +1,7 @@
 body {
   margin:0;
   padding:0;
-  background: url("http://wallpaperswide.com/download/sunset_winter_shadows-wallpaper-1920x1080.jpg") no-repeat center fixed; 
+  background: url("../img/wallpaper.png") no-repeat center fixed; 
   -webkit-background-size: cover;
   background-size: cover;
 }
