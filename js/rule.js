@@ -1,4 +1,6 @@
 "use strict";
+var INTERDIT = "Interdit";
+
 var Rule = (function () {
     function Rule(classes, points) {
       this._points = points;

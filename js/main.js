@@ -88,8 +88,14 @@ function updateTeams(teamNumber){
 function updateLimit(){
     var score = 0;
     var scoreDisplay =  document.getElementById("score");
-    for(var i = 0; i < teams.length; i++)
-        score += teams[i].getPoints(rules);
+    for(var i = 0; i < teams.length; i++){
+        if (teams[i].getPoints(rules) != INTERDIT)
+            score += teams[i].getPoints(rules);
+        else {
+            score = INTERDIT;
+            break;
+        }
+    }
     scoreDisplay.innerHTML = score;
 
     var span = document.createElement("span");

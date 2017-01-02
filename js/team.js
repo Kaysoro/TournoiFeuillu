@@ -51,15 +51,22 @@ var Team = (function () {
                 }
 
               if (found){
-                this._score += rules[i].getPoints();
+                if (rules[i].getPoints() != INTERDIT && this._score != INTERDIT)
+                  this._score += rules[i].getPoints();
+                else
+                  this._score = INTERDIT;
                 this._scoreDetails += rules[i].getClasses()[0].getNom();
 
                 for(var k = 1; k < founds.length; k++)
                   this._scoreDetails += " + " + rules[i].getClasses()[k].getNom();
 
-                this._scoreDetails += " : " + rules[i].getPoints() + "pt";
-                if (rules[i].getPoints() > 1)
-                  this._scoreDetails += "s";
+                this._scoreDetails += " : " + rules[i].getPoints();
+                if (rules[i].getPoints() != INTERDIT){
+                  this._scoreDetails += "pt";
+                  if (rules[i].getPoints() > 1)
+                    this._scoreDetails += "s";
+                }
+                
                 this._scoreDetails += "\n"
                 break;
             }

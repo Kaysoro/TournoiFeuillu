@@ -48,13 +48,21 @@ var rules = [
 , new Rule([classes[12],  classes[5], classes[13]], 1)
 , new Rule([classes[12],  classes[5], classes[1]], 1)
 
-// Double piliers (Eni, Sacri, Osa, Xel) : 2
-, new Rule([classes[3],  classes[8]],  2) 
-, new Rule([classes[3],  classes[11]], 2)
-, new Rule([classes[3],  classes[15]], 2) 
-, new Rule([classes[8],  classes[11]], 2)
-, new Rule([classes[11], classes[15]], 2)
-, new Rule([classes[8],  classes[15]], 2)
+// Double piliers (Eni, Sacri, Osa, Xel) : INTERDIT
+, new Rule([classes[3],  classes[8]],  INTERDIT) 
+, new Rule([classes[3],  classes[11]], INTERDIT)
+, new Rule([classes[3],  classes[15]], INTERDIT) 
+, new Rule([classes[8],  classes[11]], INTERDIT)
+, new Rule([classes[11], classes[15]], INTERDIT)
+, new Rule([classes[8],  classes[15]], INTERDIT)
+
+// Double erodeurs (Iop, Eca, Sram, Roub) : INTERDIT
+, new Rule([classes[7],  classes[1]],  INTERDIT) 
+, new Rule([classes[7],  classes[13]], INTERDIT)
+, new Rule([classes[7],  classes[10]], INTERDIT)
+, new Rule([classes[1],  classes[13]], INTERDIT)
+, new Rule([classes[1], classes[10]], INTERDIT)
+, new Rule([classes[10],  classes[13]], INTERDIT)
 ];
 
 var teams = [
