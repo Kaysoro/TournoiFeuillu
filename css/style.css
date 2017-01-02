@@ -54,6 +54,21 @@ body {
     border : 2px solid green;
 }
 
+.score {
+    font-size: 3em;
+    color : green;
+}
+
+.global-score {
+  font-size: 5em;
+  text-align : center;
+  color : green;
+}
+
+.global-score > span {
+   font-size: 0.5em;
+}
+
 .item {
     width: 54px;
     height: 54px;
@@ -87,13 +102,6 @@ body {
     opacity:1;
     animation: swing 0.5s;
 	-webkit-animation: swing 0.5s;
-}
-
-.score {
-  /**
-  TODO police
-  **/
-  color : green;
 }
 
 .error {

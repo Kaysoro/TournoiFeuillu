@@ -1,5 +1,6 @@
 initDispos();
 initTeams();
+updateLimit();
 
 /** ====================================
  * Functions dedicated to the GUI
@@ -12,7 +13,11 @@ function initDispos(){
         img.setAttribute("class", "item");
         img.setAttribute("src", "img/" + classes[i].getNom() + ".png");
         img.setAttribute("alt", classes[i].getNom());
-        img.setAttribute("title", classes[i].getNom() + ", " + classes[i].getPoints() + "pts");
+
+        var tooltip = classes[i].getNom() + ", " + classes[i].getPoints() + "pt";
+        if (classes[i].getPoints() > 1)
+            tooltip += "s";
+        img.setAttribute("title", tooltip);
 
         document.getElementById("classes").appendChild(img);
     }
@@ -23,6 +28,11 @@ function initTeams(){
         var div = document.createElement("div");
         div.setAttribute("class", "team");
         div.setAttribute("onclick", "selectTeam(" + i + ")");
+
+        var score = document.createElement("div");
+        score.setAttribute("class", "score");
+        score.innerHTML = teams[i].getPoints();
+        div.appendChild(score);
 
         for(var j = 0; j < PLAYER_PER_TEAM; j++){
             var img = document.createElement("img");
@@ -48,15 +58,20 @@ function updateDispos(classNumber){
 }
 
 function updateTeams(teamNumber){
-    var imgs = document.getElementsByClassName("team")[teamNumber]
-                .getElementsByTagName("img");
+    var teamDisplay = document.getElementsByClassName("team")[teamNumber]
+    var imgs = teamDisplay.getElementsByTagName("img");
     var classesTeam = teams[teamNumber].getClasses();
     
     for(var i = 0; i < classesTeam.length; i++){
         imgs[i].setAttribute("onclick", "selectClass(" + classes.indexOf(classesTeam[i]) + ")");
         imgs[i].setAttribute("src", "img/" + classesTeam[i].getNom() + ".png");
         imgs[i].setAttribute("alt", classesTeam[i].getNom());
-        imgs[i].setAttribute("title", classesTeam[i].getNom() + ", " + classesTeam[i].getPoints() + "pts");
+
+        var tooltip = classesTeam[i].getNom() + ", " + classesTeam[i].getPoints() + "pt";
+        if (classesTeam[i].getPoints() > 1)
+            tooltip += "s";
+
+        imgs[i].setAttribute("title", tooltip); 
     }
 
     for(var i = classesTeam.length; i < PLAYER_PER_TEAM; i++){
@@ -65,10 +80,26 @@ function updateTeams(teamNumber){
         imgs[i].removeAttribute("alt");
         imgs[i].removeAttribute("title");
     }
+
+    teamDisplay.getElementsByClassName("score")[0].innerHTML = teams[teamNumber].getPoints(rules);
+    teamDisplay.setAttribute("title", teams[teamNumber].getDetailedPoints(rules));
 }
 
 function updateLimit(){
-    //TODO
+    var score = 0;
+    var scoreDisplay =  document.getElementById("score");
+    for(var i = 0; i < teams.length; i++)
+        score += teams[i].getPoints(rules);
+    scoreDisplay.innerHTML = score;
+
+    var span = document.createElement("span");
+    span.innerHTML = " / " + LIMIT_POINTS;
+    scoreDisplay.appendChild(span);
+
+    if (LIMIT_POINTS >= score)
+        scoreDisplay.setAttribute("class", "global-score");
+    else
+        scoreDisplay.setAttribute("class", "global-score error");
 }
 
 
