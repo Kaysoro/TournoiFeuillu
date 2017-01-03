@@ -30,9 +30,10 @@ var rules = [
 , new Rule([classes[4],  classes[11]], 1)
 , new Rule([classes[4],  classes[15]], 1)
 
-// Zobal + Steamer ou Sadi : 1
+// Zobal + Steamer ou Sadi ou Osa : 1
 , new Rule([classes[12], classes[16]], 1) 
 , new Rule([classes[14], classes[16]], 1)
+, new Rule([classes[8],  classes[16]], 1) 
 
 // Osa + Sadi : 1
 , new Rule([classes[8],  classes[12]], 1)
