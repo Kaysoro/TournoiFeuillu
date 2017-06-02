@@ -89,12 +89,16 @@ function updateLimit(){
     var score = 0;
     var scoreDisplay =  document.getElementById("score");
     for(var i = 0; i < teams.length; i++){
-        if (teams[i].getPoints(rules) != INTERDIT)
-            score += teams[i].getPoints(rules);
-        else {
+        if (teams[i].getPoints(rules) == INTERDIT ){
             score = INTERDIT;
             break;
         }
+        else if (teams[i].getPoints(rules) == PILIER_MANQUANT ){
+            score = PILIER_MANQUANT;
+            break;
+        }
+        else
+            score += teams[i].getPoints(rules);
     }
     scoreDisplay.innerHTML = score;
 

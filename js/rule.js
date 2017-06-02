@@ -1,5 +1,6 @@
 "use strict";
 var INTERDIT = "Interdit";
+var PILIER_MANQUANT = "Pilier absent"
 
 var Rule = (function () {
     function Rule(classes, points) {

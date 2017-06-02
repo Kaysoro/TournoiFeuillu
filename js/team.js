@@ -72,6 +72,24 @@ var Team = (function () {
             }
           }
         }
+
+          // On check maintenant la notion de pilier obligatoire
+          if (PILIER_OBLIGATOIRE && this._players.length == PLAYER_PER_TEAM){
+            var found = false;
+            for(var i = 0; i < piliers.length; i++){
+              for(var j = 0; j < this._players.length; j++)
+                if (piliers[i] == this._players[j]){
+                  found = true;
+                  break;
+                }
+              if (found) break;
+            }
+
+            if (!found){
+              this._score = PILIER_MANQUANT;
+              this._scoreDetails = PILIER_MANQUANT;
+            }
+        }
         this._score_update = true;
       }
       return this._score;
